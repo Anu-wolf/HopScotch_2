@@ -27,4 +27,5 @@ What we've done so far:
 
 Tools used to build this: HTML5 , CSS3 , JavaScript
 -
-
+Link to the game : [https://rudhraa-r.github.io/HopScotch-/](https://rudhraa-r.github.io/HopScotch-/)
+-
