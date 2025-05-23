@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Enhancing Computational Thinking through Interactive Hopscotch Game
 -
 In the modern educational landscape, fostering computational thinking skills among young learners is paramount for their success in an increasingly digital world. This project aims to achieve this goal by transforming the traditional hopscotch game into an interactive digital platform that engages students in computational thinking concepts.
@@ -29,3 +30,7 @@ Tools used to build this: HTML5 , CSS3 , JavaScript
 -
 Link to the game : [https://rudhraa-r.github.io/HopScotch-/](https://rudhraa-r.github.io/HopScotch-/)
 -
+=======
+# HopScotch_2
+the second version
+>>>>>>> 61561fa412128caab3f411e67ffbd734c9190605
