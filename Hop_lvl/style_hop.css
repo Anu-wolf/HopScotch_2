@@ -252,13 +252,13 @@ body{
         height: 60px;
         width: 60px;
         z-index: 1000000000;
-        display: none;
+        display: block;
       }
       .icon-hop{
         height: 60px;
         width: 60px;
         z-index: 1000000000;
-        display :block
+        display :none;
       }
 
       .overlay {
