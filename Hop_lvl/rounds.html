@@ -145,10 +145,18 @@
 
   <script src="script_hop.js"></script>
   <script>
-    function switchRound(roundNumber) {
+    /*
+      function switchRound(roundNumber) { 
       document.getElementById('currentRound').innerText = roundNumber;
       document.querySelectorAll('.round-section').forEach(el => el.classList.remove('active'));
       document.getElementById(`round${roundNumber}`).classList.add('active');
+      }
+    */
+    function switchRound(roundNumber) {
+      document.getElementById('currentRound').innerText = roundNumber;
+      document.querySelectorAll('.round-section').forEach(el => el.classList.remove('active'));
+      const current = document.getElementById(`round${roundNumber}`);
+      if (current) current.classList.add('active');
     }
   </script>
 </body>
