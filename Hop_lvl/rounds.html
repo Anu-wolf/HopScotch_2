@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hopscotch Rounds</title>
+  <link rel="stylesheet" href="style_hop.css">
+  <style>
+    .round-section { display: none; }
+    .round-section.active { display: block; }
+    .toggle-btn { margin: 5px; padding: 10px 20px; cursor: pointer; background-color: #aaa; border-radius: 5px; border: none; }
+  </style>
+</head>
+<body>
+  <div id="headingContainer">
+    <div id="headingText">Round <span id="currentRound">1</span></div>
+  </div>
+
+  <div style="margin: 10px;">
+    <button class="toggle-btn" onclick="switchRound(1)">Round 1</button>
+    <button class="toggle-btn" onclick="switchRound(2)">Round 2</button>
+  </div>
+
+  <div class="container">
+    <div id="round1" class="round-section active">
+      <div id="buttonContainer">
+        <button draggable="true">Hop</button>
+        <button draggable="true">Hop</button>
+        <button draggable="true">Skip</button>
+        <button draggable="true">Skip & HopRight</button>
+        <button draggable="true">Skip & HopLeft</button>
+        <button draggable="true">Jump</button>
+        <button draggable="true">Jump</button>
+      </div>
+    </div>
+
+    <div id="round2" class="round-section">
+      <div id="buttonContainer">
+        <button draggable="true">Hop</button>
+        <button draggable="true">Jump</button>
+        <button draggable="true">Skip</button>
+        <button draggable="true">Skip & HopRight</button>
+        <button draggable="true">Skip & HopLeft</button>
+        <button draggable="true">Hop</button>
+        <button draggable="true">Jump</button>
+      </div>
+    </div>
+
+    <div id="round3" class="round-section">
+      <div id="buttonContainer">
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Skip" draggable="true">Skip</button>
+        <button id="Skip-HopRight" draggable="true">Skip & HopRight</button>
+        <button id="Skip-HopLeft" draggable="true">Skip & HopLeft</button>
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Jump" draggable="true">Jump</button>
+      </div>
+    </div>
+
+    <div id="round4" class="round-section">
+      <div id="buttonContainer">
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Skip" draggable="true">Skip</button>
+        <button id="Skip-HopRight" draggable="true">Skip & HopRight</button>
+        <button id="Skip-HopLeft" draggable="true">Skip & HopLeft</button>
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Jump" draggable="true">Jump</button>
+      </div>
+    </div>
+
+    <div id="round5" class="round-section">
+      <div id="buttonContainer">
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Skip" draggable="true">Skip</button>
+        <button id="Skip-HopRight" draggable="true">Skip & HopRight</button>
+        <button id="Skip-HopLeft" draggable="true">Skip & HopLeft</button>
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Jump" draggable="true">Jump</button>
+      </div>
+    </div>
+
+    <div id="round6" class="round-section">
+      <div id="buttonContainer">
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Skip" draggable="true">Skip</button>
+        <button id="Skip-HopRight" draggable="true">Skip & HopRight</button>
+        <button id="Skip-HopLeft" draggable="true">Skip & HopLeft</button>
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Jump" draggable="true">Jump</button>
+      </div>
+    </div>
+
+    <div id="round7" class="round-section">
+      <div id="buttonContainer">
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Skip" draggable="true">Skip</button>
+        <button id="Skip-HopRight" draggable="true">Skip & HopRight</button>
+        <button id="Skip-HopLeft" draggable="true">Skip & HopLeft</button>
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Jump" draggable="true">Jump</button>
+      </div>
+    </div>
+
+    <div id="round8" class="round-section">
+      <div id="buttonContainer">
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Skip" draggable="true">Skip</button>
+        <button id="Skip-HopRight" draggable="true">Skip & HopRight</button>
+        <button id="Skip-HopLeft" draggable="true">Skip & HopLeft</button>
+        <button id="Hop" draggable="true">Hop</button>
+        <button id="Jump" draggable="true">Jump</button>
+      </div>
+    </div>
+
+    <div id="destinationContainer"></div>
+    <button id="runButton">Run</button>
+    <button id="resetButton">Reset</button>
+    <button id="checkButton">Check Order</button>
+  </div>
+
+  <div class="contain">
+    <div class="game-container">
+      <canvas id="canvas"></canvas>
+      <div id="character" class="character">
+        <img src="icons8-jumping-60.png" class="icon-jump" id="jump" alt="">
+        <img src="icons8-running-60.png" class="icon-hop" id="hop">
+      </div>
+      <section class="droppable-elements">
+        <img src="Picture1.png" alt="">
+      </section>
+    </div>
+  </div>
+
+  <script src="script_hop.js"></script>
+  <script>
+    function switchRound(roundNumber) {
+      document.getElementById('currentRound').innerText = roundNumber;
+      document.querySelectorAll('.round-section').forEach(el => el.classList.remove('active'));
+      document.getElementById(`round${roundNumber}`).classList.add('active');
+    }
+  </script>
+</body>
+</html>
