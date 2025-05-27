@@ -1,3 +1,4 @@
+
 class HopscotchGame {
   constructor(level, levelSequences) {
     this.levelSequences = levelSequences;
@@ -28,17 +29,9 @@ class HopscotchGame {
 
   updateButtonVisibility() {
     const buttons = Array.from(this.buttonContainer.children);
-
     buttons.forEach(button => {
-      button.style.display = 'block';
-    });
-
-    buttons.forEach(button => {
-      const buttonId = button.id;
-      const isButtonAvailable = this.availableButtons.includes(buttonId);
-      if (!isButtonAvailable) {
-        button.style.display = 'none';
-      }
+      const action = button.dataset.action;
+      button.style.display = this.availableButtons.includes(action) ? 'block' : 'none';
     });
   }
 
@@ -64,8 +57,9 @@ class HopscotchGame {
     event.preventDefault();
     const buttonId = event.dataTransfer.getData('text/plain');
     const draggedButton = document.getElementById(buttonId);
+    const action = draggedButton.dataset.action;
 
-    if (this.availableButtons.includes(buttonId)) {
+    if (this.availableButtons.includes(action)) {
       this.destinationContainer.appendChild(draggedButton);
       draggedButton.setAttribute("draggable", "false");
       draggedButton.style.cursor = 'no-drop';
@@ -74,11 +68,8 @@ class HopscotchGame {
 
   isOrderCorrect(currentOrder) {
     if (currentOrder.length !== this.availableButtons.length) return false;
-
     for (let i = 0; i < this.availableButtons.length; i++) {
-      if (currentOrder[i] !== this.availableButtons[i]) {
-        return false;
-      }
+      if (currentOrder[i] !== this.availableButtons[i]) return false;
     }
     return true;
   }
@@ -86,21 +77,20 @@ class HopscotchGame {
   resetGame() {
     while (this.destinationContainer.firstChild) {
       this.buttonContainer.appendChild(this.destinationContainer.firstChild);
-      const buttons = Array.from(this.buttonContainer.children);
-      buttons.forEach(button => {
-        button.setAttribute("draggable", "true");
-        button.style.cursor = 'move';
-      });
     }
-
+    const buttons = Array.from(this.buttonContainer.children);
+    buttons.forEach(button => {
+      button.setAttribute("draggable", "true");
+      button.style.cursor = 'move';
+    });
     this.availableButtons = this.levelSequences[this.currentLevel];
-    this.character.style.transform = `translateY(${0}px) translateX(${0}px)`;
+    this.character.style.transform = `translateY(0px) translateX(0px)`;
     this.updateButtonVisibility();
   }
 
   moveCharacter(buttonSequence, callback) {
     let index = 0;
-    this.character.style.transform = `translateY(${0}px) translateX(${0}px)`;
+    this.character.style.transform = `translateY(0px) translateX(0px)`;
 
     const moveNext = () => {
       if (index >= buttonSequence.length) {
@@ -152,7 +142,7 @@ class HopscotchGame {
   }
 
   runSequence() {
-    const currentOrder = Array.from(this.destinationContainer.children).map(button => button.id);
+    const currentOrder = Array.from(this.destinationContainer.children).map(button => button.dataset.action);
     this.moveCharacter(currentOrder, () => {
       if (this.isOrderCorrect(currentOrder)) {
         alert(`Congratulations! You arranged the buttons correctly for place ${this.currentLevel}.`);
@@ -164,14 +154,14 @@ class HopscotchGame {
   }
 
   checkSequence() {
-    const currentOrder = Array.from(this.destinationContainer.children).map(button => button.id);
+    const currentOrder = Array.from(this.destinationContainer.children).map(button => button.dataset.action);
     this.moveCharacter(currentOrder, () => {
       if (this.isOrderCorrect(currentOrder)) {
         alert('The order is right, now use the run button to finish the level');
       } else {
         alert('The order is not right or it is incomplete. Check the animation & use the reset button to try again !!');
       }
-      this.character.style.transform = `translateY(${0}px) translateX(${0}px)`;
+      this.character.style.transform = `translateY(0px) translateX(0px)`;
       this.xPosition = 0;
       this.yPosition = 0;
     });
@@ -211,48 +201,45 @@ class HopscotchGame {
   }
 }
 
-// Initialize the game
 const levelSequences = {
   1: ['Skip', 'Hop', 'Jump', 'Hop', 'Jump'],
   2: ['Hop', 'Skip', 'Jump', 'Hop', 'Jump'],
   3: ['Hop', 'Hop', 'Skip', 'Hop', 'Jump'],
   4: ['Hop', 'Hop', 'Hop', 'Skip-HopRight', 'Hop', 'Jump'],
-  5: ['Hop', 'Hop', 'Hop', 'Skip-HopLeft', 'Hop', 'Jump'], // Example level with right skip
+  5: ['Hop', 'Hop', 'Hop', 'Skip-HopLeft', 'Hop', 'Jump'],
   6: ['Hop', 'Hop', 'Hop', 'Jump', 'Skip'],
   7: ['Hop', 'Hop', 'Hop', 'Jump', 'Hop', 'Skip-HopRight'],
-  8: ['Hop', 'Hop', 'Hop', 'Jump', 'Hop', 'Skip-HopLeft'], // Example level with left skip
-  // Add more levels as needed
+  8: ['Hop', 'Hop', 'Hop', 'Jump', 'Hop', 'Skip-HopLeft'],
 };
 
-
-let game; // global game instance
+let game;
 
 function initializeGame(round) {
   if (game) {
-    // Clean up any previous round-specific state
     document.getElementById('destinationContainer').innerHTML = '';
     document.getElementById('buttonContainer').innerHTML = '';
   }
 
-  // Set currentRound UI text
   document.getElementById('currentRound').innerText = round;
 
-  // Update buttons for the round
   const roundSection = document.getElementById(`round${round}`);
   const newButtons = roundSection.querySelectorAll('button');
 
-  // Move them into the main buttonContainer
   const buttonContainer = document.getElementById('buttonContainer');
-  newButtons.forEach(btn => {
+  newButtons.forEach((btn, index) => {
     const clone = btn.cloneNode(true);
     clone.setAttribute('draggable', 'true');
+
+    const action = btn.id;
+    clone.id = `${action}-${index}`;
+    clone.dataset.action = action;
+
     buttonContainer.appendChild(clone);
   });
 
   game = new HopscotchGame(round, levelSequences);
 }
-//const currentLevel = document.getElementById('headingText').innerHTML;
-//const game = new HopscotchGame(currentLevel, levelSequences);
+
 document.addEventListener("DOMContentLoaded", () => {
   initializeGame(1);
 });
