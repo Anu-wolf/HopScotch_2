@@ -11,6 +11,8 @@ body{
     }
     #buttonContainer {
         display: flex;
+        flex-direction: column;
+        margin: 5px;
         gap: 10px;
         padding: 10px;
         background-color: #6a6565;
@@ -52,6 +54,8 @@ body{
         height: fit-content;
         width: fit-content;
         padding: 10px;
+        background-color: #f0f0f0;
+        margin-left: 20px;
     
         position: relative;
         left: 85px;
@@ -294,6 +298,14 @@ body{
       .overlay-content button:hover {
         background-color: #0056b3;
       }
+      #buttonContainer button[draggable="true"] {
+        cursor: grab;
+      }
+      #buttonContainer button[draggable="false"] {
+        cursor: no-drop;
+        opacity: 0.6;
+      }
+
       
           
           
