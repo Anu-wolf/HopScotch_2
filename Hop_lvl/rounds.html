@@ -151,20 +151,22 @@
 
   <script src="script_hop.js"></script>
   <script>
+    <button class="toggle-btn" onclick="console.log('Switch to 1'); switchRound(1)">Round 1</button>
     /*
       function switchRound(roundNumber) { 
       document.getElementById('currentRound').innerText = roundNumber;
       document.querySelectorAll('.round-section').forEach(el => el.classList.remove('active'));
       document.getElementById(`round${roundNumber}`).classList.add('active');
       }
-    */
+  
     function switchRound(roundNumber) {
       document.querySelectorAll('.round-section').forEach(el => el.classList.remove('active'));
       const current = document.getElementById(`round${roundNumber}`);
       if (current) current.classList.add('active');
 
       initializeGame(roundNumber); 
-  }
+    }
+    */
   </script>
 </body>
 </html>

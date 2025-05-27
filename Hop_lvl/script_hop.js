@@ -255,3 +255,9 @@ function initializeGame(round) {
 //const game = new HopscotchGame(currentLevel, levelSequences);
 initializeGame(1);
 
+function switchRound(roundNumber) {
+  document.querySelectorAll('.round-section').forEach(el => el.classList.remove('active'));
+  const current = document.getElementById(`round${roundNumber}`);
+  if (current) current.classList.add('active');
+  initializeGame(roundNumber);
+}
