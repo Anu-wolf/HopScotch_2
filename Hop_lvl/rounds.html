@@ -151,5 +151,13 @@
   </div>
 
   <script src="script_hop.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const round = parseInt(params.get("round")) || 1;//if no round then round1
+      switchRound(round);
+    });
+</script>
+
 </body>
 </html>
