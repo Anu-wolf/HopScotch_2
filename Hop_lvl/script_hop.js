@@ -253,7 +253,9 @@ function initializeGame(round) {
 }
 //const currentLevel = document.getElementById('headingText').innerHTML;
 //const game = new HopscotchGame(currentLevel, levelSequences);
-initializeGame(1);
+document.addEventListener("DOMContentLoaded", () => {
+  initializeGame(1);
+});
 
 function switchRound(roundNumber) {
   document.querySelectorAll('.round-section').forEach(el => el.classList.remove('active'));
