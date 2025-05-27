@@ -224,5 +224,34 @@ const levelSequences = {
   // Add more levels as needed
 };
 
-const currentLevel = document.getElementById('headingText').innerHTML;
-const game = new HopscotchGame(currentLevel, levelSequences);
+
+let game; // global game instance
+
+function initializeGame(round) {
+  if (game) {
+    // Clean up any previous round-specific state
+    document.getElementById('destinationContainer').innerHTML = '';
+    document.getElementById('buttonContainer').innerHTML = '';
+  }
+
+  // Set currentRound UI text
+  document.getElementById('currentRound').innerText = round;
+
+  // Update buttons for the round
+  const roundSection = document.getElementById(`round${round}`);
+  const newButtons = roundSection.querySelectorAll('button');
+
+  // Move them into the main buttonContainer
+  const buttonContainer = document.getElementById('buttonContainer');
+  newButtons.forEach(btn => {
+    const clone = btn.cloneNode(true);
+    clone.setAttribute('draggable', 'true');
+    buttonContainer.appendChild(clone);
+  });
+
+  game = new HopscotchGame(round, levelSequences);
+}
+//const currentLevel = document.getElementById('headingText').innerHTML;
+//const game = new HopscotchGame(currentLevel, levelSequences);
+initializeGame(1);
+
