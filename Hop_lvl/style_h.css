@@ -43,7 +43,7 @@ a{
 }
 .instr{
     color: rgb(0, 0, 0);
-    font-size: 40px;
+    font-size: 40vw;
     position: relative;
     height: 40px;
     width: 700px;
