@@ -59,7 +59,7 @@ class HopscotchGame {
     const draggedButton = document.getElementById(buttonId);
     const action = draggedButton.dataset.action;
 
-    if (this.availableButtons.includes(action)) {
+    if (action) {
       this.destinationContainer.appendChild(draggedButton);
       draggedButton.setAttribute("draggable", "false");
       draggedButton.style.cursor = 'no-drop';
@@ -223,7 +223,7 @@ function initializeGame(round) {
   document.getElementById('currentRound').innerText = round;
 
   const roundSection = document.getElementById(`round${round}`);
-  const newButtons = roundSection.querySelectorAll('button');
+  const newButtons = document.querySelectorAll('#round-buttons button');
 
   const buttonContainer = document.getElementById('buttonContainer');
   newButtons.forEach((btn, index) => {
