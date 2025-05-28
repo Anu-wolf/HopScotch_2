@@ -242,7 +242,7 @@ function initializeGame(round) {
 /*
 document.addEventListener("DOMContentLoaded", () => {
   initializeGame(1);
-});*/
+});
 
 function switchRound(roundNumber) {
   document.querySelectorAll('.round-section').forEach(el => el.classList.remove('active'));
@@ -250,3 +250,20 @@ function switchRound(roundNumber) {
   if (current) current.classList.add('active');
   initializeGame(roundNumber);
 }
+  */
+function switchRound(roundNumber) {
+  // Hide all round sections so extra buttons disappear
+  document.querySelectorAll('.round-section').forEach(el => {
+    el.style.display = 'none';
+    el.classList.remove('active');
+  });
+
+  const current = document.getElementById(`round${roundNumber}`);
+  if (current) {
+    current.classList.add('active');
+    current.style.display = 'none';  
+  }
+
+  initializeGame(roundNumber);
+}
+
