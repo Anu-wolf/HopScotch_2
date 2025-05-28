@@ -230,7 +230,7 @@ function initializeGame(round) {
     const clone = btn.cloneNode(true);
     clone.setAttribute('draggable', 'true');
 
-    const action = btn.id;
+    const action = btn.dataset.action;
     clone.id = `${action}${index}`;
     clone.dataset.action = action;
 
