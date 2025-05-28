@@ -223,7 +223,7 @@ function initializeGame(round) {
   document.getElementById('currentRound').innerText = round;
 
   const roundSection = document.getElementById(`round${round}`);
-  const newButtons = document.querySelectorAll('#round-buttons button');
+  const newButtons = document.querySelectorAll('round-button');
 
   const buttonContainer = document.getElementById('buttonContainer');
   newButtons.forEach((btn, index) => {
