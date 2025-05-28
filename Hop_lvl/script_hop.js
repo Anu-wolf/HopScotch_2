@@ -239,10 +239,10 @@ function initializeGame(round) {
 
   game = new HopscotchGame(round, levelSequences);
 }
-
+/*
 document.addEventListener("DOMContentLoaded", () => {
   initializeGame(1);
-});
+});*/
 
 function switchRound(roundNumber) {
   document.querySelectorAll('.round-section').forEach(el => el.classList.remove('active'));
