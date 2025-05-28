@@ -20,10 +20,10 @@ body{
 .lvls{
     display: flex;
     flex-wrap: wrap;
-    /*width: 500px;*/
+    width: 5000px;
     gap: 16px;
     margin-top: 20px;
-    /*align-items: center;*/
+    align-items: center;
     justify-content: center;
 }
 /*.hop_lvls{
