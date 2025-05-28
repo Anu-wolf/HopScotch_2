@@ -52,6 +52,7 @@ a{
 }
 .toggle-btn{
     background-color: #5a8ca0;
+    margin: 12px;
     color: #f8f8dc; /* light text */
     border: 2px solid #333;
     border-radius: 12px;
