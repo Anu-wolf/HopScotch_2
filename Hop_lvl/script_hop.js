@@ -23,17 +23,17 @@ class HopscotchGame {
     this.nextlvl = parseInt(this.currentLevel) + 1;
 
     // Initialize the game
-    this.updateButtonVisibility();
+    //this.updateButtonVisibility();
     this.addEventListeners();
   }
 
-  updateButtonVisibility() {
+  /*updateButtonVisibility() {
     const buttons = Array.from(this.buttonContainer.children);
     buttons.forEach(button => {
       const action = button.dataset.action;
       button.style.display = this.availableButtons.includes(action) ? 'block' : 'none';
     });
-  }
+  }*/
 
   addEventListeners() {
     this.resetButton.addEventListener('click', () => this.resetGame());
@@ -270,7 +270,7 @@ function switchRound(roundNumber) {
 }
   */
 function switchRound(roundNumber) {
-  // Hide all round sections so extra buttons disappear
+  /*
   document.querySelectorAll('.round-section').forEach(el => {
     el.style.display = 'none';
     el.classList.remove('active');
@@ -281,7 +281,7 @@ function switchRound(roundNumber) {
     current.classList.add('active');
     current.style.display = 'none';  
   }
-
+ */
   initializeGame(roundNumber);
 }
 
