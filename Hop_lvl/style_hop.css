@@ -174,7 +174,7 @@ body{
           .four{
             position: relative;
             left: -97px;
-        bottom: 43px;
+            bottom: 43px;
           }
           
           .five{
@@ -306,10 +306,10 @@ body{
       }
 
 #correctMessage {
-  position: absolute;
+  position: fixed;
   top: 40%;
   left: 50%;
-  z-index: 1000000;
+  z-index: 99999;
   transform: translate(-50%, -50%);
   background: #d4edda;
   color: #155724;
