@@ -241,6 +241,8 @@ function initializeGame(round) {
 
   const actions = levelSequences[round];
   const buttonContainer = document.getElementById('buttonContainer');
+  buttonContainer.innerHTML = '';//to clear out button container!
+
 
   actions.forEach((action, index) => {
     const button = document.createElement('button');
