@@ -19,9 +19,6 @@ body{
         min-width: 250px;
         height: fit-content;
         max-height: 700px;
-        /*margin: 5px;
-        flex-direction: column;
-        */
         max-width: 250px;
         justify-content: space-around;
         align-items: flex-start;
@@ -53,9 +50,6 @@ body{
         border: 2.5px solid #4d4646;
         height: 280px;
         width: 250px;
-        /*height: fit-content;
-        margin-left: 20px;
-        width: fit-content;*/
         padding: 10px;
         background-color: #f0f0f0;
         display: flex;
