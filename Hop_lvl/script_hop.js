@@ -223,6 +223,7 @@ function initializeGame(round) {
   document.getElementById('currentRound').innerText = round;
 
   const roundSection = document.getElementById(`round${round}`);
+  /*
   const newButtons = roundSection.querySelectorAll('button');
 
   const buttonContainer = document.getElementById('buttonContainer');
@@ -236,6 +237,21 @@ function initializeGame(round) {
 
     buttonContainer.appendChild(clone);
   });
+  */
+
+  const actions = levelSequences[round];
+  const buttonContainer = document.getElementById('buttonContainer');
+
+  actions.forEach((action, index) => {
+    const button = document.createElement('button');
+    button.innerText = action.replace(/-/g, ' & ');
+    button.setAttribute('draggable', 'true');
+    button.id = `${action}${index}`;
+    button.dataset.action = action;
+    button.className = 'game-button'; 
+    buttonContainer.appendChild(button);
+  });
+
 
   game = new HopscotchGame(round, levelSequences);
 }
