@@ -305,6 +305,49 @@ body{
         opacity: 0.6;
       }
 
-      
+#correctMessage {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #d4edda;
+  color: #155724;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  border: 2px solid #c3e6cb;
+  box-shadow: 0 0 10px rgba(0, 128, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#correctMessage.show {
+  opacity: 1;
+  animation: popFade 1.5s ease forwards;
+}
+
+@keyframes popFade {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+  }
+  30% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
           
           

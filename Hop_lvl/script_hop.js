@@ -145,6 +145,7 @@ class HopscotchGame {
     const currentOrder = Array.from(this.destinationContainer.children).map(button => button.dataset.action);
     this.moveCharacter(currentOrder, () => {
       if (this.isOrderCorrect(currentOrder)) {
+        showCorrectMessage()
         alert(`Congratulations! You arranged the buttons correctly for place ${this.currentLevel}.`);
         this.showOverlay();
       } else {
@@ -257,5 +258,16 @@ function switchRound(roundNumber) {
   }
  */
   initializeGame(roundNumber);
+}
+
+function showCorrectMessage() {
+  const msg = document.getElementById('correctMessage');
+  msg.classList.remove('hidden');
+  msg.classList.add('show');
+
+  setTimeout(() => {
+    msg.classList.remove('show');
+    msg.classList.add('hidden');
+  }, 3500); 
 }
 
