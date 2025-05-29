@@ -271,6 +271,6 @@ function showCorrectMessage() {
   setTimeout(() => {
     msg.classList.remove('show');
     msg.classList.add('hidden');
-  }, 3500); 
+  }, 5000); 
 }
 
