@@ -145,7 +145,7 @@ class HopscotchGame {
     const currentOrder = Array.from(this.destinationContainer.children).map(button => button.dataset.action);
     this.moveCharacter(currentOrder, () => {
       if (this.isOrderCorrect(currentOrder)) {
-        showCorrectMessage()
+        showCorrectMessage();
         alert(`Congratulations! You arranged the buttons correctly for place ${this.currentLevel}.`);
         this.showOverlay();
       } else {
