@@ -110,6 +110,7 @@ body{
       .contain{
       position: relative;
       top: 30px;
+      z-index: inherit;
     
       }
       .stone {
