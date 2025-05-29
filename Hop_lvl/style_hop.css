@@ -51,14 +51,16 @@ body{
       
       #destinationContainer {
         border: 2.5px solid #4d4646;
-        min-height: 280px;
-        min-width: 200px;
-        height: fit-content;
-        width: fit-content;
+        height: 280px;
+        width: 250px;
+        /*height: fit-content;
+        width: fit-content;*/
         padding: 10px;
         background-color: #f0f0f0;
         margin-left: 20px;
-    
+        display: flex;
+        flex-wrap: wrap;
+        overflow-y: auto;
         position: relative;
         left: 85px;
       }
