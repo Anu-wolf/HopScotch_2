@@ -359,11 +359,12 @@ body{
 }
 
           
-          
-
 @keyframes glow {
   0%, 100% {
     box-shadow: 0 0 10px #28a745, 0 0 20px #28a745;
+  }
+  30% {
+    box-shadow: 0 0 20px #218838, 0 0 30px #218838;
   }
   50% {
     box-shadow: 0 0 20px #218838, 0 0 30px #218838;
