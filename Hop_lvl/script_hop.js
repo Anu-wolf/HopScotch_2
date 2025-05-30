@@ -263,7 +263,7 @@ function switchRound(roundNumber) {
   initializeGame(roundNumber);
 }
 
-
+/*
 function showCorrectMessage() {
   console.log("✅ showCorrectMessage was triggered!");
   const msg = document.getElementById('correctMessage');
@@ -287,5 +287,32 @@ function showCorrectMessage() {
     msg.classList.add('hidden');
   }, 7000);
 }
+  */
+
+function showCorrectMessage() {
+  console.log("✅ showCorrectMessage was triggered!");
+
+  // Make sure the div shows visually
+  const msg = document.getElementById('correctMessage');
+  msg.classList.remove('hidden');
+  msg.classList.add('show');
+
+  // 🎉 Confetti trigger
+  if (typeof confetti === 'function') {
+    confetti({
+      particleCount: 300,
+      spread: 100,
+      origin: { y: 0.6 }
+    });
+  } else {
+    console.error("❌ confetti() is not defined. Check script order.");
+  }
+
+  setTimeout(() => {
+    msg.classList.remove('show');
+    msg.classList.add('hidden');
+  }, 7000);
+}
+
 
 
