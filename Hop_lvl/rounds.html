@@ -12,15 +12,19 @@
   </style>
 </head>
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+  <div class="button-wrapper">
+    <button class = "confetti-button"> yay!!!</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <div id="headingContainer">
     <div id="headingText">Round <span id="currentRound">1</span></div>
   </div>
 
-  <div id="correctMessage" class ="hidden">
+  <!--<div id="correctMessage" class ="hidden">
     ✓ Correct!
   </div>
-  
+  -->
+
   <!--
   <div style="margin: 1px;">
     <button class="toggle-btn" onclick="switchRound(1)">Round 1</button>
@@ -63,13 +67,10 @@
       switchRound(round);
     });
   </script>
-
-  import JSConfetti from 'js-confetti'
-
-  const jsConfetti = new JSConfetti()
-  jsConfetti.addConfetti({
-   emojis: ['✨', '💫'],
-  })
-
+  <script>
+    document.getElementsByClassName("confetti-button")[0].addEventListener("click", () =>{
+      confetti();
+    })
+  </script>
 </body>
 </html>
