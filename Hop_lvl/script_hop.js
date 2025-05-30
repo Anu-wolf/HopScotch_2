@@ -265,6 +265,7 @@ function switchRound(roundNumber) {
 
 
 function showCorrectMessage() {
+  console.log("✅ showCorrectMessage was triggered!");
   const msg = document.getElementById('correctMessage');
   msg.classList.remove('hidden');
   msg.classList.add('show');
