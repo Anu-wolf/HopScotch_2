@@ -263,14 +263,28 @@ function switchRound(roundNumber) {
   initializeGame(roundNumber);
 }
 
+
 function showCorrectMessage() {
   const msg = document.getElementById('correctMessage');
   msg.classList.remove('hidden');
   msg.classList.add('show');
 
+  // 🎉 Trigger Confetti
+  confetti({
+    particleCount: 150,
+    spread: 100,
+    origin: { y: 0.6 }
+  });
+
+  // 🔊 Play sound
+  const sound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-game-level-completed-2059.mp3');
+  sound.volume = 0.5;
+  sound.play();
+
   setTimeout(() => {
     msg.classList.remove('show');
     msg.classList.add('hidden');
-  }, 7000); 
+  }, 7000);
 }
+
 
