@@ -278,7 +278,7 @@ function showCorrectMessage() {
   });
 
   // sound
-  const sound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-game-level-completed-2059.mp3');
+  const sound = new Audio('https://cdn.pixabay.com/audio/2022/03/15/audio_009d4bf186.mp3'); 
   sound.volume = 0.5;
   sound.play();
 
