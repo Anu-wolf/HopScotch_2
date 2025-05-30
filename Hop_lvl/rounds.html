@@ -12,7 +12,7 @@
   </style>
 </head>
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
   <div id="headingContainer">
     <div id="headingText">Round <span id="currentRound">1</span></div>
   </div>
@@ -63,6 +63,13 @@
       switchRound(round);
     });
   </script>
+
+  import JSConfetti from 'js-confetti'
+
+  const jsConfetti = new JSConfetti()
+  jsConfetti.addConfetti({
+   emojis: ['✨', '💫'],
+  })
 
 </body>
 </html>

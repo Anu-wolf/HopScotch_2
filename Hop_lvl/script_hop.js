@@ -287,7 +287,7 @@ function showCorrectMessage() {
     msg.classList.add('hidden');
   }, 7000);
 }
-  */
+*/
 
 function showCorrectMessage() {
   console.log("✅ showCorrectMessage was triggered!");
@@ -297,7 +297,7 @@ function showCorrectMessage() {
   msg.classList.remove('hidden');
   msg.classList.add('show');
 
-  // 🎉 Confetti trigger
+  // Confetti trigger
   if (typeof confetti === 'function') {
     confetti({
       particleCount: 300,
