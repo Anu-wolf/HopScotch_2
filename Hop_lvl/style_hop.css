@@ -306,7 +306,7 @@ body{
         opacity: 0.6;
       }
 
-#correctMessage {
+.button-wrapper{
   background: linear-gradient(to right, #d4edda, #c3e6cb);
   animation: popFade 1.5s ease forwards, glow 2s ease-in-out infinite;
   position: fixed;
@@ -326,7 +326,7 @@ body{
   transition: opacity 0.3s ease-in-out;
 }
 
-#correctMessage.show {
+.button-wrapper.show {
   opacity: 1;
   animation: popFade 1.5s ease forwards;
 }
@@ -354,7 +354,7 @@ body{
   }
 }
 
-.hidden {
+.confetti-button {
   display: none;
 }
 
